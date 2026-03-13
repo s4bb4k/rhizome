@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Rhizome Register</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left">
+
+<h2>Rhizome</h2>
+
+<form action="/register" method="POST">
+
+<input type="email" name="email" placeholder="Email" required>
+
+<input type="password" name="password" placeholder="Password" required>
+
+<button type="submit">Create account</button>
+
+</form>
+
+<p>
+¿Ya tienes cuenta?
+<a href="/">Login</a>
+</p>
+
+</div>
+
+<div class="right">
+
+<h1>Create Account</h1>
+
+<p>
+Crea tu cuenta para comenzar a generar
+mapas procedurales utilizando Rhizome.
+</p>
+
+<img src="{{ url_for('static', filename='img/register.png') }}" class="illustration">
+
+</div>
+
+</div>
+
+</body>
+
+</html>
