@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rhizome Login</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <div class="left">
+
+                <h2>Rhizome</h2>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+
+                <div class="toast-container">
+                    {% for category, message in messages %}
+                <div class="toast {{category}}">
+                    {{message}}
+            </div>
+
+            {% endfor %}
+
+            </div>
+
+            {% endif %}
+            {% endwith %}
+
+            <form action="/login" method="POST">
+
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit">Login</button>
+
+            </form>
+
+            <p>
+            No tienes cuenta?
+            <a href="/register-page">Crear cuenta</a>
+            </p>
+
+            </div>
+
+            <div class="right">
+
+            <h1>Welcome</h1>
+
+            <p>
+            Rhizome es una plataforma para la generación procedural
+            de mapas en videojuegos 2D utilizando algoritmos
+            de ruido y autómatas celulares.
+            </p>
+
+            </div>
+
+        </div>
+
+    </body>
+    <script src="{{ url_for('static', filename='js/alerts.js') }}"></script>
+</html>
