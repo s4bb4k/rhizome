@@ -92,12 +92,22 @@ def generate_adaptive():
             "seed": data.get("seed", None)
         }
 
-        resultado = generate_adaptive_map_ml(config)
+        user_profile = data.get("user_profile", {})
+        user_behavior = data.get("user_behavior", {})
+        context = data.get("context", {})
+
+        resultado = generate_adaptive_map_ml(
+            config,
+            user_profile,
+            user_behavior,
+            context
+        )
 
         return jsonify({
             "status": "success",
             "score": resultado["score"],
             "config_final": resultado["config_final"],
+            "metricas": resultado["metricas"],
             "map": resultado["map"]
         })
 
